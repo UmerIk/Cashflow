@@ -67,22 +67,23 @@ class _DashboardState extends State<Dashboard> implements Drawerinterface{
           title: Text(title),
 
           actions: [
-            GestureDetector(
-              onTap: (){
-                double total = 0;
-                for(int i = 0 ; i < userModel.additionaladjustment.length ; i++){
-                  final element = userModel.additionaladjustment[i];
-                  AdditionalAdjustment additionalAdjustment = AdditionalAdjustment.fromMap(element);
-                  total = total + additionalAdjustment.amount;
-                }
-                if(page == 0){
-                  CashReturnPDF(userModel , total).save();
-                }else if(page == 1){
-                  AnnualPDF(userModel, total).save();
-
-                }
-              },child: Icon(Icons.save)
+            IconButton(
+                onPressed: (){
+                  double total = userModel.securitydepositproration;
+                  for(int i = 0 ; i < userModel.additionaladjustment.length ; i++){
+                    final element = userModel.additionaladjustment[i];
+                    AdditionalAdjustment additionalAdjustment = AdditionalAdjustment.fromMap(element);
+                    total = total + additionalAdjustment.amount;
+                  }
+                  if(page == 0){
+                    CashReturnPDF(userModel , total).save();
+                  }else if(page == 1){
+                    AnnualPDF(userModel, total).save();
+                  }
+                },
+                icon: Icon(Icons.save)
             ),
+
           ],
         ),
         body: pages[page],
@@ -104,6 +105,32 @@ class _DashboardState extends State<Dashboard> implements Drawerinterface{
   @override
   dclick(int c , String title) {
     Navigator.of(context).pop();
+    if(c == 9){
+      BaseAlertDialog alertDialog = BaseAlertDialog(
+        title: 'Add new file',
+        content: 'Your all previous data will be removed. if you add a new file?',
+        yes: 'Yes',
+        no: 'No',
+        noOnPressed: (){
+          Navigator.of(context).pop();
+        },
+        yesOnPressed: () async {
+          Navigator.of(context).pop();
+          Functions().showLoaderDialog(context);
+          await FirebaseFirestore.instance.collection('Users')
+              .doc(FirebaseAuth.instance.currentUser!.uid).delete();
+          Navigator.of(context).pop();
+          Future.delayed(Duration(milliseconds: 10)).then((value){
+            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (ctx){
+              return Home();
+            }), (route) => false);
+          });
+        },
+      );
+
+
+      showDialog(context: context, builder: (BuildContext context) => alertDialog);
+    }else
     if(c == 10){
       BaseAlertDialog alertDialog = BaseAlertDialog(
         title: 'Logout',

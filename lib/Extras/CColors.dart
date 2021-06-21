@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 
 class CColors{
 
-  static const primary =  Color(0xFFfe653c);
+  // static const primary =  Color(0xFFfe653c);
+  static const primary =  Color(0xFF2196F3);
   static const greentext =  Color(0xFF4BA759);
   static const primary2 =  Color(0xFF221f1f);
 

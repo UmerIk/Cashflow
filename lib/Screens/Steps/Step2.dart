@@ -81,10 +81,10 @@ class Step2 extends StatelessWidget {
                     var irc = TextEditingController();
                     var ppyc = TextEditingController();
 
-                    mpc.text = '${mortgageNotifier.mlist[i].monthlypaymnet}';
-                    lbac.text = '${mortgageNotifier.mlist[i].loanbalanceamount}';
-                    irc.text = '${mortgageNotifier.mlist[i].intrestrate}';
-                    ppyc.text = '${mortgageNotifier.mlist[i].paymentsperyear}';
+                    mpc.text = mortgageNotifier.mlist[i].monthlypaymnet == 0 ?'' : '${mortgageNotifier.mlist[i].monthlypaymnet}';
+                    lbac.text = mortgageNotifier.mlist[i].loanbalanceamount == 0 ?'' :  '${mortgageNotifier.mlist[i].loanbalanceamount}';
+                    irc.text = mortgageNotifier.mlist[i].intrestrate == 0 ?'' : '${mortgageNotifier.mlist[i].intrestrate}';
+                    ppyc.text = mortgageNotifier.mlist[i].paymentsperyear == 0 ?'' : '${mortgageNotifier.mlist[i].paymentsperyear}';
 
                     return Card(
                       elevation: 3,
@@ -116,32 +116,39 @@ class Step2 extends StatelessWidget {
                                   border: Border.all(width: 1, color: CColors.textgray),
                                   borderRadius: BorderRadius.circular(20)
                               ),
-                              child: TextField(
-                                controller: mpc,
-                                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                                  TextInputFormatter.withFunction((oldValue, newValue) {
-                                    try {
-                                      final text = newValue.text;
-                                      if (text.isNotEmpty) double.parse(text);
-                                      return newValue;
-                                    } catch (e) {}
-                                    return oldValue;
-                                  }),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.attach_money,color: CColors.primary,),
+                                  Expanded(
+                                    child: TextField(
+                                      controller: mpc,
+                                      keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                                        TextInputFormatter.withFunction((oldValue, newValue) {
+                                          try {
+                                            final text = newValue.text;
+                                            if (text.isNotEmpty) double.parse(text);
+                                            return newValue;
+                                          } catch (e) {}
+                                          return oldValue;
+                                        }),
+                                      ],
+                                      decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                      ),
+                                      textInputAction: TextInputAction.next,
+                                      onEditingComplete: ()=> node.nextFocus(),
+                                      onChanged: (val){
+                                        if(val.isEmpty){
+                                          mortgageNotifier.mlist[i].monthlypaymnet = 0;
+                                        }else{
+                                          mortgageNotifier.mlist[i].monthlypaymnet = double.parse(val);
+                                        }
+                                      },
+                                    ),
+                                  ),
                                 ],
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                ),
-                                textInputAction: TextInputAction.next,
-                                onEditingComplete: ()=> node.nextFocus(),
-                                onChanged: (val){
-                                  if(val.isEmpty){
-                                    mortgageNotifier.mlist[i].monthlypaymnet = 0;
-                                  }else{
-                                    mortgageNotifier.mlist[i].monthlypaymnet = double.parse(val);
-                                  }
-                                },
                               ),
                             ),
 
@@ -159,32 +166,39 @@ class Step2 extends StatelessWidget {
                                   border: Border.all(width: 1, color: CColors.textgray),
                                   borderRadius: BorderRadius.circular(20)
                               ),
-                              child: TextField(
-                                controller: lbac,
-                                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                                  TextInputFormatter.withFunction((oldValue, newValue) {
-                                    try {
-                                      final text = newValue.text;
-                                      if (text.isNotEmpty) double.parse(text);
-                                      return newValue;
-                                    } catch (e) {}
-                                    return oldValue;
-                                  }),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.attach_money,color: CColors.primary,),
+                                  Expanded(
+                                    child: TextField(
+                                      controller: lbac,
+                                      keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                                        TextInputFormatter.withFunction((oldValue, newValue) {
+                                          try {
+                                            final text = newValue.text;
+                                            if (text.isNotEmpty) double.parse(text);
+                                            return newValue;
+                                          } catch (e) {}
+                                          return oldValue;
+                                        }),
+                                      ],
+                                      decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                      ),
+                                      textInputAction: TextInputAction.next,
+                                      onEditingComplete: ()=> node.nextFocus(),
+                                      onChanged: (val){
+                                        if(val.isEmpty){
+                                          mortgageNotifier.mlist[i].loanbalanceamount = 0;
+                                        }else{
+                                          mortgageNotifier.mlist[i].loanbalanceamount = double.parse(val);
+                                        }
+                                      },
+                                    ),
+                                  ),
                                 ],
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                ),
-                                textInputAction: TextInputAction.next,
-                                onEditingComplete: ()=> node.nextFocus(),
-                                onChanged: (val){
-                                  if(val.isEmpty){
-                                    mortgageNotifier.mlist[i].loanbalanceamount = 0;
-                                  }else{
-                                    mortgageNotifier.mlist[i].loanbalanceamount = double.parse(val);
-                                  }
-                                },
                               ),
                             ),
 
@@ -201,32 +215,40 @@ class Step2 extends StatelessWidget {
                                   border: Border.all(width: 1, color: CColors.textgray),
                                   borderRadius: BorderRadius.circular(20)
                               ),
-                              child: TextField(
-                                controller: irc,
-                                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                                  TextInputFormatter.withFunction((oldValue, newValue) {
-                                    try {
-                                      final text = newValue.text;
-                                      if (text.isNotEmpty) double.parse(text);
-                                      return newValue;
-                                    } catch (e) {}
-                                    return oldValue;
-                                  }),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.attach_money,color: CColors.primary,),
+
+                                  Expanded(
+                                    child: TextField(
+                                      controller: irc,
+                                      keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                                        TextInputFormatter.withFunction((oldValue, newValue) {
+                                          try {
+                                            final text = newValue.text;
+                                            if (text.isNotEmpty) double.parse(text);
+                                            return newValue;
+                                          } catch (e) {}
+                                          return oldValue;
+                                        }),
+                                      ],
+                                      decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                      ),
+                                      textInputAction: TextInputAction.next,
+                                      onEditingComplete: ()=> node.nextFocus(),
+                                      onChanged: (val){
+                                        if(val.isEmpty){
+                                          mortgageNotifier.mlist[i].intrestrate = 0;
+                                        }else{
+                                          mortgageNotifier.mlist[i].intrestrate = double.parse(val);
+                                        }
+                                      },
+                                    ),
+                                  ),
                                 ],
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                ),
-                                textInputAction: TextInputAction.next,
-                                onEditingComplete: ()=> node.nextFocus(),
-                                onChanged: (val){
-                                  if(val.isEmpty){
-                                    mortgageNotifier.mlist[i].intrestrate = 0;
-                                  }else{
-                                    mortgageNotifier.mlist[i].intrestrate = double.parse(val);
-                                  }
-                                },
                               ),
                             ),
 
@@ -243,32 +265,39 @@ class Step2 extends StatelessWidget {
                                   border: Border.all(width: 1, color: CColors.textgray),
                                   borderRadius: BorderRadius.circular(20)
                               ),
-                              child: TextField(
-                                controller: ppyc,
-                                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                                  TextInputFormatter.withFunction((oldValue, newValue) {
-                                    try {
-                                      final text = newValue.text;
-                                      if (text.isNotEmpty) double.parse(text);
-                                      return newValue;
-                                    } catch (e) {}
-                                    return oldValue;
-                                  }),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.attach_money,color: CColors.primary,),
+                                  Expanded(
+                                    child: TextField(
+                                      controller: ppyc,
+                                      keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                                        TextInputFormatter.withFunction((oldValue, newValue) {
+                                          try {
+                                            final text = newValue.text;
+                                            if (text.isNotEmpty) double.parse(text);
+                                            return newValue;
+                                          } catch (e) {}
+                                          return oldValue;
+                                        }),
+                                      ],
+                                      decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                      ),
+                                      textInputAction: TextInputAction.next,
+                                      onEditingComplete: ()=> node.nextFocus(),
+                                      onChanged: (val){
+                                        if(val.isEmpty){
+                                          mortgageNotifier.mlist[i].paymentsperyear = 0;
+                                        }else{
+                                          mortgageNotifier.mlist[i].paymentsperyear = double.parse(val);
+                                        }
+                                      },
+                                    ),
+                                  ),
                                 ],
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                ),
-                                textInputAction: TextInputAction.next,
-                                onEditingComplete: ()=> node.nextFocus(),
-                                onChanged: (val){
-                                  if(val.isEmpty){
-                                    mortgageNotifier.mlist[i].paymentsperyear = 0;
-                                  }else{
-                                    mortgageNotifier.mlist[i].paymentsperyear = double.parse(val);
-                                  }
-                                },
                               ),
                             ),
                           ],
@@ -307,25 +336,32 @@ class Step2 extends StatelessWidget {
                             border: Border.all(width: 1, color: CColors.textgray),
                             borderRadius: BorderRadius.circular(20)
                         ),
-                        child: TextField(
-                          controller: pmic,
-                          keyboardType: TextInputType.numberWithOptions(decimal: true),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                            TextInputFormatter.withFunction((oldValue, newValue) {
-                              try {
-                                final text = newValue.text;
-                                if (text.isNotEmpty) double.parse(text);
-                                return newValue;
-                              } catch (e) {}
-                              return oldValue;
-                            }),
+                        child: Row(
+                          children: [
+                            Icon(Icons.attach_money,color: CColors.primary,),
+                            Expanded(
+                              child: TextField(
+                                controller: pmic,
+                                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                                  TextInputFormatter.withFunction((oldValue, newValue) {
+                                    try {
+                                      final text = newValue.text;
+                                      if (text.isNotEmpty) double.parse(text);
+                                      return newValue;
+                                    } catch (e) {}
+                                    return oldValue;
+                                  }),
+                                ],
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                ),
+                                textInputAction: TextInputAction.next,
+                                onEditingComplete: ()=> node.nextFocus(),
+                              ),
+                            ),
                           ],
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: ()=> node.nextFocus(),
                         ),
                       ),
 
@@ -343,25 +379,32 @@ class Step2 extends StatelessWidget {
                             border: Border.all(width: 1, color: CColors.textgray),
                             borderRadius: BorderRadius.circular(20)
                         ),
-                        child: TextField(
-                          controller: avc,
-                          keyboardType: TextInputType.numberWithOptions(decimal: true),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                            TextInputFormatter.withFunction((oldValue, newValue) {
-                              try {
-                                final text = newValue.text;
-                                if (text.isNotEmpty) double.parse(text);
-                                return newValue;
-                              } catch (e) {}
-                              return oldValue;
-                            }),
+                        child: Row(
+                          children: [
+                            Icon(Icons.attach_money,color: CColors.primary,),
+                            Expanded(
+                              child: TextField(
+                                controller: avc,
+                                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                                  TextInputFormatter.withFunction((oldValue, newValue) {
+                                    try {
+                                      final text = newValue.text;
+                                      if (text.isNotEmpty) double.parse(text);
+                                      return newValue;
+                                    } catch (e) {}
+                                    return oldValue;
+                                  }),
+                                ],
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                ),
+                                textInputAction: TextInputAction.next,
+                                onEditingComplete: ()=> node.nextFocus(),
+                              ),
+                            ),
                           ],
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: ()=> node.nextFocus(),
                         ),
                       ),
 
@@ -378,25 +421,32 @@ class Step2 extends StatelessWidget {
                             border: Border.all(width: 1, color: CColors.textgray),
                             borderRadius: BorderRadius.circular(20)
                         ),
-                        child: TextField(
-                          controller: rpc,
-                          keyboardType: TextInputType.numberWithOptions(decimal: true),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                            TextInputFormatter.withFunction((oldValue, newValue) {
-                              try {
-                                final text = newValue.text;
-                                if (text.isNotEmpty) double.parse(text);
-                                return newValue;
-                              } catch (e) {}
-                              return oldValue;
-                            }),
+                        child: Row(
+                          children: [
+                            Icon(Icons.attach_money,color: CColors.primary,),
+                            Expanded(
+                              child: TextField(
+                                controller: rpc,
+                                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                                  TextInputFormatter.withFunction((oldValue, newValue) {
+                                    try {
+                                      final text = newValue.text;
+                                      if (text.isNotEmpty) double.parse(text);
+                                      return newValue;
+                                    } catch (e) {}
+                                    return oldValue;
+                                  }),
+                                ],
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                ),
+                                textInputAction: TextInputAction.next,
+                                onEditingComplete: ()=> node.nextFocus(),
+                              ),
+                            ),
                           ],
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: ()=> node.nextFocus(),
                         ),
                       ),
 
@@ -413,25 +463,32 @@ class Step2 extends StatelessWidget {
                             border: Border.all(width: 1, color: CColors.textgray),
                             borderRadius: BorderRadius.circular(20)
                         ),
-                        child: TextField(
-                          controller: sdpc,
-                          keyboardType: TextInputType.numberWithOptions(decimal: true),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                            TextInputFormatter.withFunction((oldValue, newValue) {
-                              try {
-                                final text = newValue.text;
-                                if (text.isNotEmpty) double.parse(text);
-                                return newValue;
-                              } catch (e) {}
-                              return oldValue;
-                            }),
+                        child: Row(
+                          children: [
+                            Icon(Icons.attach_money,color: CColors.primary,),
+                            Expanded(
+                              child: TextField(
+                                controller: sdpc,
+                                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                                  TextInputFormatter.withFunction((oldValue, newValue) {
+                                    try {
+                                      final text = newValue.text;
+                                      if (text.isNotEmpty) double.parse(text);
+                                      return newValue;
+                                    } catch (e) {}
+                                    return oldValue;
+                                  }),
+                                ],
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                ),
+                                textInputAction: TextInputAction.next,
+                                onEditingComplete: ()=> node.nextFocus(),
+                              ),
+                            ),
                           ],
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: ()=> node.nextFocus(),
                         ),
                       ),
 

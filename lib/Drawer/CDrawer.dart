@@ -28,14 +28,14 @@ class CDrawer extends StatelessWidget {
               drawerinterface.dclick(0, 'Return on Cash');
             },
             title: Text('Return on Cash'),
-            trailing: Icon(Icons.arrow_forward_ios),
+            trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
           ),
           ListTile(
             onTap: (){
               drawerinterface.dclick(1, 'Annual Return');
             },
             title: Text('Annual Return'),
-            trailing: Icon(Icons.arrow_forward_ios),
+            trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
           ),
 
           ListTile(
@@ -43,21 +43,21 @@ class CDrawer extends StatelessWidget {
               drawerinterface.dclick(2, 'Annual Return');
             },
             title: Text('Mortgage'),
-            trailing: Icon(Icons.arrow_forward_ios),
+            trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
           ),
           ListTile(
             onTap: (){
               drawerinterface.dclick(3, 'Annual Return');
             },
             title: Text('Monthly Income'),
-            trailing: Icon(Icons.arrow_forward_ios),
+            trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
           ),
           ListTile(
             onTap: (){
               drawerinterface.dclick(4, 'Annual Return');
             },
             title: Text('Additional Adjustment'),
-            trailing: Icon(Icons.arrow_forward_ios),
+            trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
           ),
 
           ListTile(
@@ -65,7 +65,15 @@ class CDrawer extends StatelessWidget {
               drawerinterface.dclick(5, 'Annual Return');
             },
             title: Text('Monthly Expense'),
-            trailing: Icon(Icons.arrow_forward_ios),
+            trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
+          ),
+
+          ListTile(
+            onTap: (){
+              drawerinterface.dclick(9, 'New File');
+            },
+            title: Text('Add New File'),
+            trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
           ),
 
           ListTile(
@@ -73,7 +81,7 @@ class CDrawer extends StatelessWidget {
               drawerinterface.dclick(10, 'Logout');
             },
             title: Text('Logout'),
-            trailing: Icon(Icons.arrow_forward_ios),
+            trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
           ),
         ],
       ),

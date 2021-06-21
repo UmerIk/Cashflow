@@ -64,7 +64,7 @@ class Step4 extends StatelessWidget {
                     return ListView.builder(itemBuilder: (ctx, i){
                       var d = TextEditingController(), a = TextEditingController();
                       d.text = noti.alist[i].description;
-                      a.text = '${noti.alist[i].amount}';
+                      a.text = noti.alist[i].amount == 0 ? '' : '${noti.alist[i].amount}';
                       return Card(
                         elevation: 3,
                         margin: EdgeInsets.symmetric(vertical: height * 0.01 , horizontal: width * 0.03),
@@ -114,32 +114,39 @@ class Step4 extends StatelessWidget {
                                     border: Border.all(width: 1, color: CColors.textgray),
                                     borderRadius: BorderRadius.circular(20)
                                 ),
-                                child: TextField(
-                                  controller: a,
-                                  keyboardType: TextInputType.numberWithOptions(decimal: true),
-                                  inputFormatters: [
-                                    FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                                    TextInputFormatter.withFunction((oldValue, newValue) {
-                                      try {
-                                        final text = newValue.text;
-                                        if (text.isNotEmpty) double.parse(text);
-                                        return newValue;
-                                      } catch (e) {}
-                                      return oldValue;
-                                    }),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.attach_money,color: CColors.primary,),
+                                    Expanded(
+                                      child: TextField(
+                                        controller: a,
+                                        keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                                          TextInputFormatter.withFunction((oldValue, newValue) {
+                                            try {
+                                              final text = newValue.text;
+                                              if (text.isNotEmpty) double.parse(text);
+                                              return newValue;
+                                            } catch (e) {}
+                                            return oldValue;
+                                          }),
+                                        ],
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                        ),
+                                        textInputAction: TextInputAction.next,
+                                        onEditingComplete: ()=> node.nextFocus(),
+                                        onChanged: (val){
+                                          if(val.isEmpty){
+                                            noti.alist[i].amount = 0;
+                                          }else{
+                                            noti.alist[i].amount = double.parse(val);
+                                          }
+                                        },
+                                      ),
+                                    ),
                                   ],
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                  ),
-                                  textInputAction: TextInputAction.next,
-                                  onEditingComplete: ()=> node.nextFocus(),
-                                  onChanged: (val){
-                                    if(val.isEmpty){
-                                      noti.alist[i].amount = 0;
-                                    }else{
-                                      noti.alist[i].amount = double.parse(val);
-                                    }
-                                  },
                                 ),
                               ),
                             ],

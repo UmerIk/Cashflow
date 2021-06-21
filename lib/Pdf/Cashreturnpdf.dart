@@ -119,6 +119,35 @@ class CashReturnPDF{
                   pw.Column(
                     children:[
 
+                      pw.Container(
+                        child: pw.Row(
+                          children: [
+
+                            pw.Container(
+                              width: 100,
+                              child: pw.Text('Security Deposit',style: pw.TextStyle(
+                                fontSize: 15,
+                              )),
+                            ),
+
+                            pw.SizedBox(width: 10),
+                            pw.Container(
+                                width: 100,
+                                padding: pw.EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                                decoration: pw.BoxDecoration(
+                                  border: pw.Border.all(width: 1, color: PdfColor.fromHex("#000000")),
+                                ),
+                                child: pw.Text(
+                                    '\$${userModel.securitydepositproration}',style: pw.TextStyle(
+                                  fontSize: 18,
+                                )
+                                )
+                            ),
+
+                          ],
+                        ),
+                      ),
+
                       pw.ListView.builder(itemBuilder: (ctx , i){
                         AdditionalAdjustment model = AdditionalAdjustment.fromMap(userModel.additionaladjustment[i]);
                         return pw.Container(
@@ -653,10 +682,10 @@ class CashReturnPDF{
     return (MonthlyIncome.fromMap(userModel.monthlyIncome).additionalincome) + (MonthlyIncome.fromMap(userModel.monthlyIncome).totalrentalincome);
   }
   double vall(){
-    return operatingincome() * 12 - operatingexpense() - totaldebt();
+    return (operatingincome() * 12) - (operatingexpense() * 12) - (totaldebt() * 12);
   }
   double cashreturn(){
-    return vall() / (total + userModel.downpayment);
+    return (vall() / (total + userModel.downpayment))  * 100;
   }
 
   double operatingexpense(){

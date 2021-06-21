@@ -70,25 +70,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: retc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: retc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -106,25 +113,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: inc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: inc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -142,25 +156,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: ngc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: ngc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -177,25 +198,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: elec,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: elec,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -213,25 +241,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: watc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: watc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -249,25 +284,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: trac,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: trac,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -284,25 +326,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: suppc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: suppc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -320,25 +369,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: lac,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: lac,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -356,25 +412,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: acc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: acc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -392,25 +455,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: assc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: assc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -428,25 +498,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: pmc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: pmc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -463,25 +540,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: payc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: payc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -498,25 +582,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: fic,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: fic,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -534,25 +625,32 @@ class Step5 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: otherc,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: otherc,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 

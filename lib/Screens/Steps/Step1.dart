@@ -29,7 +29,7 @@ class Step1 extends StatelessWidget {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     node = FocusScope.of(context);
-    datecontroller.text = DateFormat('MMMM dd,yyyy').format(DateTime.now());
+    datecontroller.text = DateFormat('MMMM dd, yyyy').format(DateTime.now());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -153,25 +153,32 @@ class Step1 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: purchasepricecontroller,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+                      Expanded(
+                        child: TextField(
+                          controller: purchasepricecontroller,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.next,
+                          onEditingComplete: ()=> node.nextFocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
                   ),
                 ),
 
@@ -188,25 +195,33 @@ class Step1 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: downpaymentpcontroller,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
-                      TextInputFormatter.withFunction((oldValue, newValue) {
-                        try {
-                          final text = newValue.text;
-                          if (text.isNotEmpty) double.parse(text);
-                          return newValue;
-                        } catch (e) {}
-                        return oldValue;
-                      }),
+                  child: Row(
+                    children: [
+                      Icon(Icons.attach_money,color: CColors.primary,),
+
+                      Expanded(
+                        child: TextField(
+                          controller: downpaymentpcontroller,
+                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+                            TextInputFormatter.withFunction((oldValue, newValue) {
+                              try {
+                                final text = newValue.text;
+                                if (text.isNotEmpty) double.parse(text);
+                                return newValue;
+                              } catch (e) {}
+                              return oldValue;
+                            }),
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          textInputAction: TextInputAction.done,
+                          onEditingComplete: ()=> node.unfocus(),
+                        ),
+                      ),
                     ],
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.done,
-                    onEditingComplete: ()=> node.unfocus(),
                   ),
                 ),
 

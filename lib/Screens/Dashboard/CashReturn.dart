@@ -93,6 +93,7 @@ class _CashReturnState extends State<CashReturn> {
                       info('Purchase Price', '\$ ${widget.userModel.purchaseprice}'),
                       info('Original Down Payment', '\$ ${widget.userModel.downpayment}'),
                       info('Appraised Value', '\$ ${widget.userModel.appraisedvalue}'),
+                      info('Security Deposits', '\$ ${widget.userModel.securitydepositproration}'),
 
                       info('Total Credits', '\$ ${total}'),
                       info('New Down Payments after Credit', '\$ ${total + widget.userModel.downpayment}'),
@@ -309,7 +310,8 @@ class _CashReturnState extends State<CashReturn> {
     List<AdditionalAdjustment> alist = [];
 
 
-    total = 0;
+    // total = 0;
+    total = widget.userModel.securitydepositproration;
     indicators.clear();
     for(int i = 0 ; i < this.widget.userModel.additionaladjustment.length ; i++){
       final element = this.widget.userModel.additionaladjustment[i];
@@ -370,10 +372,10 @@ class _CashReturnState extends State<CashReturn> {
     return (MonthlyIncome.fromMap(widget.userModel.monthlyIncome).additionalincome) + (MonthlyIncome.fromMap(widget.userModel.monthlyIncome).totalrentalincome);
   }
   double vall(){
-    return operatingincome() * 12 - operatingexpense() - totaldebt();
+    return (operatingincome() * 12) - (operatingexpense() * 12) - (totaldebt() * 12);
   }
   double cashreturn(){
-    return vall() / (total + widget.userModel.downpayment);
+    return (vall() / (total + widget.userModel.downpayment)) * 100;
   }
 
 
