@@ -9,7 +9,7 @@
 
    <application
        android:requestLegacyExternalStorage="true"
-        android:label="cashflow"
+        android:label="Awi Cash Flow"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
