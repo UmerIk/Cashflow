@@ -17,7 +17,7 @@ class Step1 extends StatelessWidget {
   var datecontroller = TextEditingController();
   var namecontroller = TextEditingController();
   var addresscontroller = TextEditingController();
-  var typepcontroller = TextEditingController();
+  // var typepcontroller = TextEditingController();
 
   var purchasepricecontroller = TextEditingController();
   var downpaymentpcontroller = TextEditingController();
@@ -128,16 +128,18 @@ class Step1 extends StatelessWidget {
                       border: Border.all(width: 1, color: CColors.textgray),
                       borderRadius: BorderRadius.circular(20)
                   ),
-                  child: TextField(
-                    controller: typepcontroller,
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    textInputAction: TextInputAction.next,
-                    onEditingComplete: ()=> node.nextFocus(),
-                  ),
+                  child: typedropdown(),
+                  // TextField(
+                  //   controller: typepcontroller,
+                  //   keyboardType: TextInputType.text,
+                  //   decoration: InputDecoration(
+                  //     border: InputBorder.none,
+                  //   ),
+                  //   textInputAction: TextInputAction.next,
+                  //   onEditingComplete: ()=> node.nextFocus(),
+                  // ),
                 ),
+
 
 
                 Text('Purchase Price', style: TextStyle(
@@ -238,8 +240,6 @@ class Step1 extends StatelessWidget {
                         Fluttertoast.showToast(msg: 'Invalid Name');
                       }else if(addresscontroller.text.trim().isEmpty){
                         Fluttertoast.showToast(msg: 'Invalid Property address');
-                      }else if(typepcontroller.text.trim().isEmpty){
-                        Fluttertoast.showToast(msg: 'Invalid Property Type');
                       }else if(purchasepricecontroller.text.trim().isEmpty){
                         Fluttertoast.showToast(msg: 'Invalid Purchase Price');
                       }else if(downpaymentpcontroller.text.trim().isEmpty){
@@ -252,7 +252,7 @@ class Step1 extends StatelessWidget {
                         userModel.email = FirebaseAuth.instance.currentUser!.email!;
                         userModel.name = namecontroller.text;
                         userModel.propertyaddress = addresscontroller.text;
-                        userModel.propertytype = typepcontroller.text;
+                        userModel.propertytype = type;
                         userModel.date = DateTime.now().millisecondsSinceEpoch;
                         userModel.purchaseprice = double.parse(purchasepricecontroller.text);
                         userModel.downpayment = double.parse(downpaymentpcontroller.text);
@@ -274,5 +274,33 @@ class Step1 extends StatelessWidget {
         ),
       ),
     );
+  }
+
+
+  String type = 'Single family';
+  Widget typedropdown() {
+    return StatefulBuilder(builder: (ctx , setState){
+      return DropdownButton<String>(
+        isExpanded: true,
+        icon: Icon(Icons.arrow_drop_down, ),
+        hint: Text(type , style: TextStyle(
+
+        ),),
+        underline: SizedBox(),
+        items: <String>['Single family', 'Duplex' , "Triplex" , " 4 unit house"].map((String value) {
+          return new DropdownMenuItem<String>(
+            value: value,
+            child: new Text(value),
+          );
+        }).toList(),
+        onChanged: (value) {
+
+          setState((){
+            type = value!;
+          });
+        },
+      );
+    });
+
   }
 }

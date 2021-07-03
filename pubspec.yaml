@@ -40,6 +40,7 @@ dependencies:
   path: ^1.8.0
   fl_chart: ^0.36.1
   pdf: ^3.3.0
+  syncfusion_flutter_pdfviewer: ^19.1.69-beta
   permission_handler: ^8.1.0
 
 

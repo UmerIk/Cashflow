@@ -28,20 +28,35 @@ class Step5 extends StatelessWidget {
   Widget build(BuildContext context) {
     if(update) {
       MonthlyExpense model = MonthlyExpense.fromMap(userModel.monthlyexpense);
-      retc.text = '${model.realestatetaxes}';
-      inc.text = '${model.insurance}';
-      ngc.text = '${model.naturalgas}';
-      elec.text = '${model.electric}';
-      watc.text = '${model.water}';
-      trac.text = '${model.trash}';
-      suppc.text = '${model.supplies}';
-      lac.text = '${model.lawn}';
-      acc.text = '${model.accounting}';
-      assc.text = '${model.associationfees}';
-      pmc.text = '${model.propertymanager}';
-      payc.text = '${model.payroll}';
-      fic.text = '${model.floodinsurance}';
-      otherc.text = '${model.others}';
+      setvalue(retc, model.realestatetaxes);
+      setvalue(inc, model.insurance);
+      setvalue(ngc, model.naturalgas);
+      setvalue(elec, model.electric);
+      setvalue(watc, model.water);
+      setvalue(trac, model.trash);
+      setvalue(suppc, model.supplies);
+      setvalue(lac, model.lawn);
+      setvalue(acc, model.accounting);
+      setvalue(assc, model.associationfees);
+      setvalue(pmc, model.propertymanager);
+      setvalue(payc, model.payroll);
+      setvalue(fic, model.floodinsurance);
+      setvalue(otherc, model.others);
+
+      // retc.text = '${model.realestatetaxes}';
+      // inc.text = '${model.insurance}';
+      // ngc.text = '${model.naturalgas}';
+      // elec.text = '${model.electric}';
+      // watc.text = '${model.water}';
+      // trac.text = '${model.trash}';
+      // suppc.text = '${model.supplies}';
+      // lac.text = '${model.lawn}';
+      // acc.text = '${model.accounting}';
+      // assc.text = '${model.associationfees}';
+      // pmc.text = '${model.propertymanager}';
+      // payc.text = '${model.payroll}';
+      // fic.text = '${model.floodinsurance}';
+      // otherc.text = '${model.others}';
     }
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
@@ -723,5 +738,14 @@ class Step5 extends StatelessWidget {
       // PlatformException platformException = error;
       Fluttertoast.showToast(msg: error.toString());
     });
+  }
+
+
+  setvalue(TextEditingController controller , double val){
+    if(val > val.toInt()){
+      controller.text = '$val';
+    }else{
+      controller.text = '${val.toInt()}';
+    }
   }
 }

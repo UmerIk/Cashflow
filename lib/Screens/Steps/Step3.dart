@@ -31,8 +31,17 @@ class Step3 extends StatelessWidget {
     node = FocusScope.of(context);
 
     if(update){
-      tric.text = '${MonthlyIncome.fromMap(userModel.monthlyIncome).totalrentalincome}';
-      aic.text = '${MonthlyIncome.fromMap(userModel.monthlyIncome).additionalincome}';
+      if(MonthlyIncome.fromMap(userModel.monthlyIncome).totalrentalincome > MonthlyIncome.fromMap(userModel.monthlyIncome).totalrentalincome.toInt()){
+        tric.text = '${MonthlyIncome.fromMap(userModel.monthlyIncome).totalrentalincome}';
+      }else{
+        tric.text = '${MonthlyIncome.fromMap(userModel.monthlyIncome).totalrentalincome.toInt()}';
+      }
+
+      if(MonthlyIncome.fromMap(userModel.monthlyIncome).additionalincome > MonthlyIncome.fromMap(userModel.monthlyIncome).additionalincome.toInt()){
+        aic.text = '${MonthlyIncome.fromMap(userModel.monthlyIncome).additionalincome}';
+      }else{
+        aic.text = '${MonthlyIncome.fromMap(userModel.monthlyIncome).additionalincome.toInt()}';
+      }
     }
 
     return Scaffold(

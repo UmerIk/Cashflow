@@ -64,7 +64,12 @@ class Step4 extends StatelessWidget {
                     return ListView.builder(itemBuilder: (ctx, i){
                       var d = TextEditingController(), a = TextEditingController();
                       d.text = noti.alist[i].description;
-                      a.text = noti.alist[i].amount == 0 ? '' : '${noti.alist[i].amount}';
+
+                      if(noti.alist[i].amount > noti.alist[i].amount.toInt()){
+                        a.text = noti.alist[i].amount == 0 ? '' : '${noti.alist[i].amount}';
+                      }else{
+                        a.text = noti.alist[i].amount == 0 ? '' : '${noti.alist[i].amount.toInt()}';
+                      }
                       return Card(
                         elevation: 3,
                         margin: EdgeInsets.symmetric(vertical: height * 0.01 , horizontal: width * 0.03),

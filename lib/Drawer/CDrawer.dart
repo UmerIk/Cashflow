@@ -1,5 +1,6 @@
 import 'package:cashflow/Extras/CColors.dart';
 import 'package:cashflow/Interface/drawerinterface.dart';
+import 'package:cashflow/Screens/MyFiles.dart';
 import 'package:flutter/material.dart';
 
 class CDrawer extends StatelessWidget {
@@ -73,6 +74,15 @@ class CDrawer extends StatelessWidget {
               drawerinterface.dclick(9, 'New File');
             },
             title: Text('Add New File'),
+            trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
+          ),
+
+          ListTile(
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>MyFilesScreen()));
+            },
+            title: Text('My Files'),
             trailing: Icon(Icons.arrow_forward_ios , color: CColors.primary,),
           ),
 

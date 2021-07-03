@@ -36,10 +36,29 @@ class Step2 extends StatelessWidget {
 
       Future.delayed(Duration(milliseconds: 100)).then((value){
         if(update){
-          pmic.text = '${userModel.privatemortageinsurance}';
-          avc.text = '${userModel.appraisedvalue}';
-          rpc.text = '${userModel.rentproration}';
-          sdpc.text = '${userModel.securitydepositproration}';
+          if(userModel.privatemortageinsurance > userModel.privatemortageinsurance.toInt()){
+            pmic.text = '${userModel.privatemortageinsurance}';
+          }else{
+            pmic.text = '${userModel.privatemortageinsurance.toInt()}';
+          }
+
+          if(userModel.appraisedvalue > userModel.appraisedvalue.toInt()){
+            avc.text = '${userModel.appraisedvalue}';
+          }else{
+            avc.text = '${userModel.appraisedvalue.toInt()}';
+          }
+
+          if(userModel.rentproration > userModel.rentproration.toInt()){
+            rpc.text = '${userModel.rentproration}';
+          }else{
+            rpc.text = '${userModel.rentproration.toInt()}';
+          }
+
+          if(userModel.securitydepositproration > userModel.securitydepositproration.toInt()){
+            sdpc.text = '${userModel.securitydepositproration}';
+          }else{
+            sdpc.text = '${userModel.securitydepositproration.toInt()}';
+          }
 
           userModel.mortage.forEach((element) {
             Mortgage mortgage = Mortgage.fromMap(element);
@@ -81,10 +100,29 @@ class Step2 extends StatelessWidget {
                     var irc = TextEditingController();
                     var ppyc = TextEditingController();
 
-                    mpc.text = mortgageNotifier.mlist[i].monthlypaymnet == 0 ?'' : '${mortgageNotifier.mlist[i].monthlypaymnet}';
-                    lbac.text = mortgageNotifier.mlist[i].loanbalanceamount == 0 ?'' :  '${mortgageNotifier.mlist[i].loanbalanceamount}';
-                    irc.text = mortgageNotifier.mlist[i].intrestrate == 0 ?'' : '${mortgageNotifier.mlist[i].intrestrate}';
-                    ppyc.text = mortgageNotifier.mlist[i].paymentsperyear == 0 ?'' : '${mortgageNotifier.mlist[i].paymentsperyear}';
+                    if(mortgageNotifier.mlist[i].monthlypaymnet > mortgageNotifier.mlist[i].monthlypaymnet.toInt()){
+                      mpc.text = mortgageNotifier.mlist[i].monthlypaymnet == 0 ?'' : '${mortgageNotifier.mlist[i].monthlypaymnet}';
+                    }else{
+                      mpc.text = mortgageNotifier.mlist[i].monthlypaymnet == 0 ?'' : '${mortgageNotifier.mlist[i].monthlypaymnet.toInt()}';
+                    }
+
+                    if(mortgageNotifier.mlist[i].loanbalanceamount > mortgageNotifier.mlist[i].loanbalanceamount.toInt()){
+                      lbac.text = mortgageNotifier.mlist[i].loanbalanceamount == 0 ?'' :  '${mortgageNotifier.mlist[i].loanbalanceamount}';
+                    }else{
+                      lbac.text = mortgageNotifier.mlist[i].loanbalanceamount == 0 ?'' :  '${mortgageNotifier.mlist[i].loanbalanceamount.toInt()}';
+                    }
+
+                    if(mortgageNotifier.mlist[i].intrestrate > mortgageNotifier.mlist[i].intrestrate.toInt()){
+                      irc.text = mortgageNotifier.mlist[i].intrestrate == 0 ?'' : '${mortgageNotifier.mlist[i].intrestrate}';
+                    }else{
+                      irc.text = mortgageNotifier.mlist[i].intrestrate == 0 ?'' : '${mortgageNotifier.mlist[i].intrestrate.toInt()}';
+                    }
+
+                    if(mortgageNotifier.mlist[i].paymentsperyear > mortgageNotifier.mlist[i].paymentsperyear.toInt()){
+                      ppyc.text = mortgageNotifier.mlist[i].paymentsperyear == 0 ?'' : '${mortgageNotifier.mlist[i].paymentsperyear}';
+                    }else{
+                      ppyc.text = mortgageNotifier.mlist[i].paymentsperyear == 0 ?'' : '${mortgageNotifier.mlist[i].paymentsperyear.toInt()}';
+                    }
 
                     return Card(
                       elevation: 3,
