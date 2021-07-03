@@ -64,11 +64,26 @@ class Step3 extends StatelessWidget {
                     children: [
 
 
-                      Text('Total Rental Income', style: TextStyle(
-                        color: CColors.textblack,
-                        fontFamily: 'fh',
-                        fontSize: 15,
-                      ),),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Total Rental Income', style: TextStyle(
+                            color: CColors.textblack,
+                            fontFamily: 'fh',
+                            fontSize: 15,
+                          ),),
+
+                          GestureDetector(
+                              onTap: (){
+                                Functions().showinfo(
+                                    context,
+                                    'Put in the total value of rent that will be collected from all units at this property.'
+                                );
+                              },
+                              child: Icon(Icons.info, color: Colors.blue,)
+                          ),
+                        ],
+                      ),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: height * 0.015),
                         padding: EdgeInsets.symmetric(horizontal: width * 0.03),
@@ -107,11 +122,26 @@ class Step3 extends StatelessWidget {
                       ),
 
 
-                      Text('Additional Income', style: TextStyle(
-                        color: CColors.textblack,
-                        fontFamily: 'fh',
-                        fontSize: 15,
-                      ),),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Additional Income', style: TextStyle(
+                            color: CColors.textblack,
+                            fontFamily: 'fh',
+                            fontSize: 15,
+                          ),),
+
+                          GestureDetector(
+                              onTap: (){
+                                Functions().showinfo(
+                                    context,
+                                    'Is there a garage that you can rent?\nDo you have laundry equipment?\nDetermine an average that you can collect in this area per month.'
+                                );
+                              },
+                              child: Icon(Icons.info, color: Colors.blue,)
+                          ),
+                        ],
+                      ),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: height * 0.015),
                         padding: EdgeInsets.symmetric(horizontal: width * 0.03),

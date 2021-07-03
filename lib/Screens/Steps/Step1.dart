@@ -1,4 +1,5 @@
 import 'package:cashflow/Extras/CColors.dart';
+import 'package:cashflow/Extras/Functions.dart';
 import 'package:cashflow/Models/ProviderModel/MortgageNotifier.dart';
 import 'package:cashflow/Models/UserModel.dart';
 import 'package:cashflow/Screens/Steps/Step2.dart';
@@ -115,11 +116,27 @@ class Step1 extends StatelessWidget {
                   ),
                 ),
 
-                Text('Type of Property', style: TextStyle(
-                  color: CColors.textblack,
-                  fontFamily: 'fh',
-                  fontSize: 15,
-                ),),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Type of Property', style: TextStyle(
+                      color: CColors.textblack,
+                      fontFamily: 'fh',
+                      fontSize: 15,
+                    ),),
+
+
+                    GestureDetector(
+                        onTap: (){
+                          Functions().showinfo(
+                              context,
+                            'Type one in  \n- Single Family \n- Duplex \n- Triplex \n- Multi-Unit'
+                          );
+                        },
+                        child: Icon(Icons.info, color: Colors.blue,)
+                    ),
+                  ],
+                ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: height * 0.015),
                   padding: EdgeInsets.symmetric(horizontal: width * 0.03),
@@ -142,11 +159,23 @@ class Step1 extends StatelessWidget {
 
 
 
-                Text('Purchase Price', style: TextStyle(
-                  color: CColors.textblack,
-                  fontFamily: 'fh',
-                  fontSize: 15,
-                ),),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Purchase Price', style: TextStyle(
+                      color: CColors.textblack,
+                      fontFamily: 'fh',
+                      fontSize: 15,
+                    ),),
+
+                    GestureDetector(
+                      onTap: (){
+                        Functions().showinfo(context, 'This is the value that you will be writing on your contract.');
+                      },
+                        child: Icon(Icons.info, color: Colors.blue,)
+                    ),
+                  ],
+                ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: height * 0.015),
                   padding: EdgeInsets.symmetric(horizontal: width * 0.03),
@@ -184,11 +213,23 @@ class Step1 extends StatelessWidget {
                   ),
                 ),
 
-                Text('Down Payment', style: TextStyle(
-                  color: CColors.textblack,
-                  fontFamily: 'fh',
-                  fontSize: 15,
-                ),),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Down Payment', style: TextStyle(
+                      color: CColors.textblack,
+                      fontFamily: 'fh',
+                      fontSize: 15,
+                    ),),
+
+                    GestureDetector(
+                      onTap: (){
+                        Functions().showinfo(context, 'Your average down payment  is usually 3-10% depending on your credit, or how you use your negotiation skills.  Remember, try to put down as little as possible, this will give you the biggest return on cash (ROC)');
+                      },
+                        child: Icon(Icons.info, color: Colors.blue,)
+                    ),
+                  ],
+                ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: height * 0.015),
                   padding: EdgeInsets.symmetric(horizontal: width * 0.03),

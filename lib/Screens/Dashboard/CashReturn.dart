@@ -90,13 +90,13 @@ class _CashReturnState extends State<CashReturn> {
                       ),
                       piechart(),
                       SizedBox(height: height * 0.01,),
-                      info('Purchase Price', '\$ ${widget.userModel.purchaseprice}'),
-                      info('Original Down Payment', '\$ ${widget.userModel.downpayment}'),
-                      info('Appraised Value', '\$ ${widget.userModel.appraisedvalue}'),
-                      info('Security Deposits', '\$ ${widget.userModel.securitydepositproration}'),
+                      info('Purchase Price', '\$ ${widget.userModel.purchaseprice.toStringAsFixed(2)}'),
+                      info('Original Down Payment', '\$ ${widget.userModel.downpayment.toStringAsFixed(2)}'),
+                      info('Appraised Value', '\$ ${widget.userModel.appraisedvalue.toStringAsFixed(2)}'),
+                      info('Security Deposits', '\$ ${widget.userModel.securitydepositproration.toStringAsFixed(2)}'),
 
-                      info('Total Credits', '\$ ${total}'),
-                      info('New Down Payments after Credit', '\$ ${total + widget.userModel.downpayment}'),
+                      info('Total Credits', '\$ ${total.toStringAsFixed(2)}'),
+                      info('New Down Payments after Credit', '\$ ${(total + widget.userModel.downpayment).toStringAsFixed(2)}'),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                         alignment: Alignment.centerLeft,
@@ -145,9 +145,9 @@ class _CashReturnState extends State<CashReturn> {
                             ],
                           )
                       ),
-                      info2('Rental income', '\$${rentalincome()}', '\$${rentalincome() * 12}'),
-                      info2('Additional income', '\$${additionalincome()}', '\$${additionalincome() * 12}'),
-                      info2('Operating income', '\$${operatingincome()}', '\$${operatingincome() * 12}'),
+                      info2('Rental income', '\$${rentalincome().toStringAsFixed(2)}', '\$${(rentalincome() * 12).toStringAsFixed(2)}'),
+                      info2('Additional income', '\$${additionalincome().toStringAsFixed(2)}', '\$${(additionalincome() * 12).toStringAsFixed(2)}'),
+                      info2('Operating income', '\$${operatingincome().toStringAsFixed(2)}', '\$${(operatingincome() * 12).toStringAsFixed(2)}'),
 
 
                       Container(
@@ -198,8 +198,8 @@ class _CashReturnState extends State<CashReturn> {
                           )
                       ),
 
-                      info2('Total Debt', '\$${totaldebt()}', '\$${totaldebt() * 12}'),
-                      info2('Operating Expense', '\$${operatingexpense()}', '\$${operatingexpense() * 12}'),
+                      info2('Total Debt', '\$${totaldebt().toStringAsFixed(2)}', '\$${(totaldebt() * 12).toStringAsFixed(2)}'),
+                      info2('Operating Expense', '\$${operatingexpense().toStringAsFixed(2)}', '\$${(operatingexpense() * 12).toStringAsFixed(2)}'),
 
                     ],
                   ),

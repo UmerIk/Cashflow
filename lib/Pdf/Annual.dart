@@ -628,7 +628,7 @@ class AnnualPDF{
                                 child: pw.Container(
                                     alignment: pw.Alignment.center,
                                     padding: pw.EdgeInsets.symmetric(vertical: 10),
-                                    child: pw.Text('Association Fees',style: pw.TextStyle(
+                                    child: pw.Text('Homeowner Association Fees',style: pw.TextStyle(
                                         fontSize: 12,
                                         fontWeight: pw.FontWeight.bold
                                     ))

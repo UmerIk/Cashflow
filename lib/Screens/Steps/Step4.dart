@@ -78,11 +78,26 @@ class Step4 extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Description', style: TextStyle(
-                                color: CColors.textblack,
-                                fontFamily: 'fh',
-                                fontSize: 15,
-                              ),),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Description', style: TextStyle(
+                                    color: CColors.textblack,
+                                    fontFamily: 'fh',
+                                    fontSize: 15,
+                                  ),),
+
+                                  GestureDetector(
+                                      onTap: (){
+                                        Functions().showinfo(
+                                            context,
+                                            'Example \n- Repair cost \n- Closing cost \n- Be creative!!\n\nRemember these are credits that you will get at closing.'
+                                        );
+                                      },
+                                      child: Icon(Icons.info, color: Colors.blue,)
+                                  ),
+                                ],
+                              ),
                               Container(
                                 margin: EdgeInsets.symmetric(vertical: height * 0.015),
                                 padding: EdgeInsets.symmetric(horizontal: width * 0.03),

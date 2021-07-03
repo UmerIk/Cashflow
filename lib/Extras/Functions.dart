@@ -40,4 +40,31 @@ class Functions{
       },
     );
   }
+  showinfo(BuildContext context , text){
+    AlertDialog alert=AlertDialog(
+      backgroundColor: Colors.blue,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20)
+      ),
+      content: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20))
+        ),
+        width: double.infinity,
+        child: Container(margin: EdgeInsets.only(),
+            child:Text("$text" ,style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'FuturaMedium',
+              fontSize: 18,
+            ),)
+        ),
+      ),
+    );
+    showDialog(barrierDismissible: true,
+      context:context,
+      builder:(BuildContext context){
+        return alert;
+      },
+    );
+  }
 }
