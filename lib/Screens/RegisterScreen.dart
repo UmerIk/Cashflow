@@ -216,7 +216,6 @@ class RegisterScreen extends StatelessWidget {
     }
     return false;
   }
-
   register(BuildContext context){
     Functions().showLoaderDialog(context,text: 'Registering');
     FirebaseAuth.instance.createUserWithEmailAndPassword(
