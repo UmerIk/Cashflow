@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>625907046592-mlpr7aht03rjvgb4oomfhgg6j5pjbdj9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.625907046592-mlpr7aht03rjvgb4oomfhgg6j5pjbdj9</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>625907046592-d5qja8rkcs4srplljc5m9eliac5fvug0.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBMMreZ4LJTFPqTH43O3diAqzuh6ua2HhI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>625907046592</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.demit.cashflow</string>
+	<key>PROJECT_ID</key>
+	<string>cashflow-284ef</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cashflow-284ef.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:625907046592:ios:36772b2c456962c1e5b525</string>
+    
+    
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>https</string>
+      <string>http</string>
+    </array>
+    
+    
+</dict>
+</plist>
