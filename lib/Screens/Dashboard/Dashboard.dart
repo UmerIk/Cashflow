@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cashflow/Drawer/CDrawer.dart';
 import 'package:cashflow/Extras/BaseAlert.dart';
 import 'package:cashflow/Extras/Functions.dart';
@@ -14,6 +16,7 @@ import 'package:cashflow/Screens/Steps/Step3.dart';
 import 'package:cashflow/Screens/Steps/Step4.dart';
 import 'package:cashflow/Screens/Steps/Step5.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:device_info/device_info.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -42,13 +45,26 @@ class _DashboardState extends State<Dashboard> implements Drawerinterface{
     title = widget.title;
     page = widget.page;
     getData();
+    geti();
     super.initState();
   }
 
   var ref = FirebaseFirestore.instance.collection('Users').doc(FirebaseAuth.instance.currentUser!.uid);
 
 
+  DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+  geti() async{
+    if(Platform.isAndroid){
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      sdk = androidInfo.version.sdkInt;
+      setState(() {});
+      print('sdk ${androidInfo.version.sdkInt}');
 
+    }
+  }
+
+
+  int sdk = 20;
   @override
   Widget build(BuildContext context) {
 
@@ -67,6 +83,7 @@ class _DashboardState extends State<Dashboard> implements Drawerinterface{
           title: Text(title),
 
           actions: [
+            sdk < 30 ?
             IconButton(
                 onPressed: (){
                   double total = userModel.securitydepositproration;
@@ -82,7 +99,7 @@ class _DashboardState extends State<Dashboard> implements Drawerinterface{
                   }
                 },
                 icon: Icon(Icons.save)
-            ),
+            ) : SizedBox(),
 
           ],
         ),

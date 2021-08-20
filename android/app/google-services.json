@@ -7,6 +7,50 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:625907046592:android:af6f8d0b86333168e5b525",
+        "android_client_info": {
+          "package_name": "com.demit.awicashflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625907046592-v6co10dfchke505cbdn28di36elpnec9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.demit.awicashflow",
+            "certificate_hash": "cfacc09b8ce26bfa5a14695eb7c006b14ea86e8e"
+          }
+        },
+        {
+          "client_id": "625907046592-pu15u5r6rllt3l2f4uud263npdeuoho7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClVSg7qSsL556ghAt5T_i5-p9VHTUBZ7Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625907046592-pu15u5r6rllt3l2f4uud263npdeuoho7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "625907046592-mlpr7aht03rjvgb4oomfhgg6j5pjbdj9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.demit.cashflow"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:625907046592:android:62408479d19b2982e5b525",
         "android_client_info": {
           "package_name": "com.demit.cashflow"
@@ -37,6 +81,13 @@
             {
               "client_id": "625907046592-pu15u5r6rllt3l2f4uud263npdeuoho7.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "625907046592-mlpr7aht03rjvgb4oomfhgg6j5pjbdj9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.demit.cashflow"
+              }
             }
           ]
         }

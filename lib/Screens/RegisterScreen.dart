@@ -216,8 +216,6 @@ class RegisterScreen extends StatelessWidget {
     }
     return false;
   }
-
-
   register(BuildContext context){
     Functions().showLoaderDialog(context,text: 'Registering');
     FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -228,7 +226,8 @@ class RegisterScreen extends StatelessWidget {
         return Home();
       }), (route) => false);
     }).catchError((error){
-      PlatformException ex = error;
+      Navigator.of(context).pop();
+      FirebaseAuthException ex = error;
       Fluttertoast.showToast(msg: ex.message.toString());
     });
   }

@@ -18,7 +18,7 @@ class _MyFilesScreenState extends State<MyFilesScreen> {
 
   var _permissionStatus;
 
-  String errortext = 'No Images Added yet';
+  String errortext = 'No Files Added yet';
 
   late double width , height;
 
