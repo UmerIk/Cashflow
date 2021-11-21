@@ -654,11 +654,25 @@ class CashReturnPDF{
   }
   save() async {
     if (await Permission.storage.request().isGranted ) {
-      final path = '/storage/emulated/0/AWI_Cash_FLow';
-      final output = Directory(path);
-      if(!await output.exists()){
-        output.createSync();
+      // final path = '/storage/emulated/0/AWI_Cash_FLow';
+      // final output = Directory(path);
+      // if(!await output.exists()){
+      //   output.createSync();
+      // }
+
+      String path;
+      if(Platform.isAndroid) {
+
+        path = '/storage/emulated/0/AWI_Cash_FLow';
+        Directory output = Directory(path);
+        if (!await output.exists()) {
+          output.createSync();
+        }
+      }else{
+        var dir = await getApplicationDocumentsDirectory();
+        path = dir.path;
       }
+
       final file = File("$path/PDF_AWI_Cash_Flow_${DateTime.now()}.pdf");
       await file.writeAsBytes(await pdf.save());
 
